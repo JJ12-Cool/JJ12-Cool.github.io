@@ -4,85 +4,130 @@
   <title>AI Transparency and Safety Act</title>
 
   <style>
-    body {
-      font-family: Arial;
+    * {
       margin: 0;
-      background-color: #f4f4f4;
-      line-height: 1.6;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #1f1c2c, #928dab);
+      color: white;
     }
 
     header {
-      background: #222;
-      color: white;
-      padding: 20px;
       text-align: center;
+      padding: 40px 20px;
+    }
+
+    header h1 {
+      font-size: 2.5em;
+    }
+
+    header p {
+      opacity: 0.8;
     }
 
     nav {
-      background: #444;
-      padding: 10px;
       text-align: center;
+      margin-bottom: 20px;
     }
 
     nav button {
       margin: 5px;
-      padding: 10px;
+      padding: 10px 15px;
       border: none;
-      background: #ddd;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.2);
+      color: white;
       cursor: pointer;
-      border-radius: 5px;
+      transition: 0.3s;
     }
 
     nav button:hover {
-      background: #bbb;
+      background: rgba(255,255,255,0.4);
+      transform: scale(1.1);
     }
 
     .container {
+      max-width: 900px;
+      margin: auto;
       padding: 20px;
     }
 
     .section {
-      background: white;
-      padding: 15px;
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      padding: 20px;
       margin-bottom: 20px;
-      border-radius: 8px;
+      transition: 0.3s;
       cursor: pointer;
-      transition: transform 0.2s;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
     }
 
     .section:hover {
-      transform: scale(1.02);
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 0 20px rgba(255,255,255,0.2);
     }
 
     .content {
       display: none;
       margin-top: 10px;
+      opacity: 0;
+      transition: opacity 0.4s ease;
     }
 
-    .active {
+    .content.active {
       display: block;
+      opacity: 1;
     }
 
-    #quiz button {
-      margin-top: 10px;
-      padding: 8px;
+    ul {
+      margin-left: 20px;
+    }
+
+    button.main-btn {
+      margin-top: 15px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 20px;
+      background: #00ffcc;
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button.main-btn:hover {
+      background: #00ccaa;
+      transform: scale(1.1);
     }
 
     #supportBar {
       width: 100%;
-      background: #ddd;
-      border-radius: 10px;
+      height: 20px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 20px;
       overflow: hidden;
       margin-top: 10px;
     }
 
     #supportFill {
+      height: 100%;
       width: 0%;
-      height: 20px;
-      background: green;
+      background: linear-gradient(90deg, #00ffcc, #00ccff);
       text-align: center;
-      color: white;
+      font-size: 12px;
+      color: black;
     }
+
+    #quizResult {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
   </style>
 </head>
 
@@ -90,7 +135,7 @@
 
 <header>
   <h1>AI Transparency and Safety Act</h1>
-  <p>Making AI safer, fairer, and more accountable</p>
+  <p>Building a safer, smarter future with responsible AI</p>
 </header>
 
 <nav>
@@ -104,74 +149,47 @@
 <div class="container">
 
   <div class="section" id="problem" onclick="toggle(this)">
-    <h2>What AI Problem It Solves</h2>
+    <h2>⚠️ AI Problem</h2>
     <div class="content">
-      <p>
-        AI is becoming part of daily life—chatbots, recommendation systems, and automated decisions.
-        However, many systems lack transparency. Users often don’t know:
-      </p>
-      <ul>
-        <li>If they are talking to AI or a human</li>
-        <li>How decisions are made (like job screening)</li>
-        <li>Whether bias or misinformation is involved</li>
-      </ul>
-      <p>This law addresses these risks directly.</p>
+      <p>AI is powerful but often invisible. Users don't know when AI is making decisions, which can lead to bias, misinformation, and lack of accountability.</p>
     </div>
   </div>
 
   <div class="section" id="rules" onclick="toggle(this)">
-    <h2>Main Rules of the Law</h2>
+    <h2>📜 Main Rules</h2>
     <div class="content">
       <ul>
-        <li><b>AI Disclosure:</b> Systems must clearly identify themselves</li>
-        <li><b>Explainability:</b> Companies must explain major decisions</li>
-        <li><b>Content Limits:</b> Harmful or misleading outputs are restricted</li>
-        <li><b>Audits:</b> Regular safety checks are required</li>
-        <li><b>User Rights:</b> People can question or appeal AI decisions</li>
+        <li>AI must identify itself</li>
+        <li>Explain important decisions</li>
+        <li>Limit harmful content</li>
+        <li>Mandatory safety audits</li>
       </ul>
     </div>
   </div>
 
   <div class="section" id="benefits" onclick="toggle(this)">
-    <h2>Who Benefits</h2>
+    <h2>✅ Who Benefits</h2>
     <div class="content">
-      <p>
-        This law benefits:
-      </p>
       <ul>
-        <li>Students – protection from misinformation</li>
-        <li>Workers – fairer hiring systems</li>
-        <li>Consumers – safer online experiences</li>
-        <li>Businesses – increased trust from users</li>
+        <li>Students</li>
+        <li>Workers</li>
+        <li>Consumers</li>
+        <li>Businesses</li>
       </ul>
     </div>
   </div>
 
   <div class="section" id="criticism" onclick="toggle(this)">
-    <h2>Possible Criticisms</h2>
+    <h2>⚖️ Criticism</h2>
     <div class="content">
-      <p>
-        Critics argue:
-      </p>
-      <ul>
-        <li>It may slow innovation</li>
-        <li>Compliance could be expensive</li>
-        <li>Enforcement might be difficult globally</li>
-      </ul>
-      <p>
-        However, supporters argue safety and trust outweigh these concerns.
-      </p>
+      <p>Some say it slows innovation and is hard to enforce, but safety and trust are more important long-term.</p>
     </div>
   </div>
 
   <div class="section" id="support">
-    <h2>Why Voters Should Support It</h2>
-    <p>
-      This law promotes transparency, fairness, and accountability in AI.
-      It ensures technology serves people responsibly.
-    </p>
-
-    <button onclick="increaseSupport()">Click to Support</button>
+    <h2>🚀 Support the Law</h2>
+    <p>Click below to show support:</p>
+    <button class="main-btn" onclick="increaseSupport()">Support</button>
 
     <div id="supportBar">
       <div id="supportFill">0%</div>
@@ -179,10 +197,10 @@
   </div>
 
   <div class="section" id="quiz">
-    <h2>Quick Quiz</h2>
+    <h2>🧠 Quick Quiz</h2>
     <p>Why is AI transparency important?</p>
-    <button onclick="checkAnswer(true)">To understand decisions</button>
-    <button onclick="checkAnswer(false)">To make AI faster</button>
+    <button class="main-btn" onclick="checkAnswer(true)">Understand decisions</button>
+    <button class="main-btn" onclick="checkAnswer(false)">Make AI faster</button>
     <p id="quizResult"></p>
   </div>
 
@@ -202,18 +220,15 @@
   function increaseSupport() {
     if (support < 100) {
       support += 10;
-      document.getElementById("supportFill").style.width = support + "%";
-      document.getElementById("supportFill").innerText = support + "%";
+      const bar = document.getElementById("supportFill");
+      bar.style.width = support + "%";
+      bar.innerText = support + "%";
     }
   }
 
   function checkAnswer(correct) {
     const result = document.getElementById("quizResult");
-    if (correct) {
-      result.innerText = "Correct! Transparency builds trust.";
-    } else {
-      result.innerText = "Not quite. Try again.";
-    }
+    result.innerText = correct ? "✔ Correct!" : "✖ Try again.";
   }
 </script>
 
