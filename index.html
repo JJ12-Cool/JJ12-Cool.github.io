@@ -1,219 +1,224 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>AI Transparency and Safety Act</title>
+<meta charset="UTF-8">
+<title>AI Transparency and Safety Act</title>
 
-  <style>
-    body {
-      font-family: Tahoma, Verdana;
-      background-color: #dcdcdc;
-      margin: 0;
-    }
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #eef1f5;
+    margin: 0;
+    color: #333;
+  }
 
-    #wrapper {
-      width: 760px;
-      margin: 20px auto;
-      background: #ffffff;
-      border: 3px solid #000;
-    }
+  header {
+    background: #1e272e;
+    color: white;
+    padding: 20px;
+    text-align: center;
+  }
 
-    #header {
-      background: #000080;
-      color: white;
-      padding: 15px;
-      text-align: center;
-    }
+  nav {
+    background: #485460;
+    padding: 10px;
+    text-align: center;
+  }
 
-    #menu {
-      background: #c0c0c0;
-      padding: 8px;
-      text-align: center;
-      border-top: 2px solid black;
-      border-bottom: 2px solid black;
-    }
+  nav a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 14px;
+  }
 
-    #menu span {
-      margin: 0 10px;
-      cursor: pointer;
-      font-size: 13px;
-      text-decoration: underline;
-    }
+  nav a:hover {
+    text-decoration: underline;
+  }
 
-    #menu span:hover {
-      color: red;
-    }
+  .container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 10px;
+  }
 
-    .box {
-      border: 2px solid black;
-      margin: 15px;
-      padding: 10px;
-    }
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
 
-    .title {
-      background: #000080;
-      color: white;
-      padding: 5px;
-      font-size: 14px;
-    }
+  .card {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    transition: 0.2s;
+  }
 
-    .content {
-      display: none;
-      padding: 10px;
-      font-size: 13px;
-    }
+  .card:hover {
+    transform: translateY(-3px);
+  }
 
-    .button {
-      border: 2px solid black;
-      background: #e0e0e0;
-      padding: 5px 10px;
-      cursor: pointer;
-      font-size: 12px;
-    }
+  .card h2 {
+    margin: 0;
+    cursor: pointer;
+    font-size: 18px;
+  }
 
-    .button:hover {
-      background: yellow;
-    }
+  .content {
+    display: none;
+    margin-top: 10px;
+    font-size: 14px;
+  }
 
-    #bar {
-      width: 100%;
-      height: 18px;
-      border: 2px solid black;
-      margin-top: 8px;
-      background: white;
-    }
+  .show {
+    display: block;
+  }
 
-    #fill {
-      height: 100%;
-      width: 0%;
-      background: green;
-      color: white;
-      font-size: 11px;
-      text-align: center;
-    }
+  ul {
+    margin-left: 20px;
+  }
 
-    #footer {
-      text-align: center;
-      font-size: 11px;
-      padding: 10px;
-      color: #333;
-    }
-  </style>
+  .btn {
+    margin-top: 10px;
+    padding: 8px 14px;
+    border: none;
+    background: #05c46b;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+  .btn:hover {
+    background: #0be881;
+  }
+
+  #bar {
+    width: 100%;
+    height: 18px;
+    background: #d2dae2;
+    border-radius: 10px;
+    margin-top: 10px;
+    overflow: hidden;
+  }
+
+  #fill {
+    height: 100%;
+    width: 0%;
+    background: #05c46b;
+    color: white;
+    font-size: 12px;
+    text-align: center;
+  }
+
+  footer {
+    text-align: center;
+    padding: 15px;
+    font-size: 12px;
+    color: #777;
+  }
+</style>
 </head>
 
 <body>
 
-<div id="wrapper">
+<header>
+  <h1>AI Transparency and Safety Act</h1>
+  <p>A simple proposal for safer AI systems</p>
+</header>
 
-  <div id="header">
-    <h2>AI Transparency and Safety Act</h2>
-    <p>A simple student project website</p>
-  </div>
+<nav>
+  <a href="#problem">Problem</a>
+  <a href="#rules">Rules</a>
+  <a href="#benefits">Benefits</a>
+  <a href="#criticism">Criticism</a>
+  <a href="#support">Support</a>
+</nav>
 
-  <div id="menu">
-    <span onclick="go('p1')">Problem</span>
-    <span onclick="go('p2')">Rules</span>
-    <span onclick="go('p3')">Benefits</span>
-    <span onclick="go('p4')">Criticism</span>
-    <span onclick="go('p5')">Support</span>
-  </div>
+<div class="container">
+  <div class="grid">
 
-  <div class="box" id="p1">
-    <div class="title" onclick="openBox(this)">AI Problem (click)</div>
-    <div class="content">
-      AI systems are everywhere now, but many are not clear or transparent.
-      People may not know when they are talking to AI, and some systems can
-      give biased or incorrect results.
+    <div class="card" id="problem">
+      <h2 onclick="toggle(this)">AI Problem</h2>
+      <div class="content">
+        AI is used in many areas, but people often don’t know how it works.
+        This can lead to unfair decisions, bias, and misinformation.
+      </div>
     </div>
-  </div>
 
-  <div class="box" id="p2">
-    <div class="title" onclick="openBox(this)">Main Rules</div>
-    <div class="content">
-      <ul>
-        <li>AI must clearly say it is AI</li>
-        <li>Important decisions must be explained</li>
-        <li>Harmful or misleading content is limited</li>
-        <li>Regular testing is required</li>
-      </ul>
+    <div class="card" id="rules">
+      <h2 onclick="toggle(this)">Main Rules</h2>
+      <div class="content">
+        <ul>
+          <li>AI must clearly identify itself</li>
+          <li>Important decisions must be explained</li>
+          <li>Limit harmful or misleading content</li>
+          <li>Regular testing for safety</li>
+        </ul>
+      </div>
     </div>
-  </div>
 
-  <div class="box" id="p3">
-    <div class="title" onclick="openBox(this)">Who Benefits</div>
-    <div class="content">
-      Students, workers, and everyday users benefit from safer AI.
-      Businesses also gain trust from customers.
+    <div class="card" id="benefits">
+      <h2 onclick="toggle(this)">Who Benefits</h2>
+      <div class="content">
+        This law helps students, workers, and everyday users by making AI more trustworthy.
+        Businesses also benefit from increased public confidence.
+      </div>
     </div>
-  </div>
 
-  <div class="box" id="p4">
-    <div class="title" onclick="openBox(this)">Criticism</div>
-    <div class="content">
-      Some believe the law could slow down innovation or be hard to enforce.
-      Others think it adds too many rules for companies.
+    <div class="card" id="criticism">
+      <h2 onclick="toggle(this)">Criticism</h2>
+      <div class="content">
+        Some believe the law may slow innovation or be difficult to enforce.
+        Others argue the benefits outweigh these concerns.
+      </div>
     </div>
-  </div>
 
-  <div class="box" id="p5">
-    <div class="title">Support the Law</div>
-    <div class="content" style="display:block;">
-      Click the button to show support:
-      <br><br>
-      <button class="button" onclick="add()">Support</button>
+    <div class="card" id="support">
+      <h2>Support the Law</h2>
+      <p>Click to show support:</p>
+      <button class="btn" onclick="addSupport()">Support</button>
 
       <div id="bar">
         <div id="fill">0%</div>
       </div>
     </div>
-  </div>
 
-  <div class="box">
-    <div class="title">Quick Question</div>
-    <div class="content" style="display:block;">
-      Why is AI transparency important?<br><br>
-      <button class="button" onclick="answer(1)">To understand decisions</button>
-      <button class="button" onclick="answer(0)">To make AI faster</button>
+    <div class="card">
+      <h2>Quick Question</h2>
+      <p>Why is AI transparency important?</p>
+      <button class="btn" onclick="answer(true)">Understand decisions</button>
+      <button class="btn" onclick="answer(false)">Make AI faster</button>
       <p id="result"></p>
     </div>
-  </div>
 
-  <div id="footer">
-    Page made by student | Last updated 2026
   </div>
-
 </div>
 
+<footer>
+  Made for a school project | 2026
+</footer>
+
 <script>
-  function openBox(el) {
-    var c = el.nextElementSibling;
-    if (c.style.display === "block") {
-      c.style.display = "none";
-    } else {
-      c.style.display = "block";
+  function toggle(el) {
+    const content = el.nextElementSibling;
+    content.classList.toggle("show");
+  }
+
+  let progress = 0;
+  function addSupport() {
+    if (progress < 100) {
+      progress += 10;
+      const bar = document.getElementById("fill");
+      bar.style.width = progress + "%";
+      bar.innerText = progress + "%";
     }
   }
 
-  function go(id) {
-    document.getElementById(id).scrollIntoView();
-  }
-
-  var num = 0;
-  function add() {
-    if (num < 100) {
-      num += 10;
-      var f = document.getElementById("fill");
-      f.style.width = num + "%";
-      f.innerHTML = num + "%";
-    }
-  }
-
-  function answer(x) {
-    var r = document.getElementById("result");
-    if (x == 1) {
-      r.innerHTML = "Correct.";
-    } else {
-      r.innerHTML = "Nope, try again.";
-    }
+  function answer(correct) {
+    const result = document.getElementById("result");
+    result.innerText = correct ? "Correct." : "Try again.";
   }
 </script>
 
