@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html>
 <head>
   <title>AI Transparency and Safety Act</title>
@@ -7,13 +6,39 @@
   <style>
     body {
       font-family: Arial;
-      margin: 40px;
+      margin: 0;
       background-color: #f4f4f4;
       line-height: 1.6;
     }
 
-    h1, h2 {
-      color: #222;
+    header {
+      background: #222;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav {
+      background: #444;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav button {
+      margin: 5px;
+      padding: 10px;
+      border: none;
+      background: #ddd;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    nav button:hover {
+      background: #bbb;
+    }
+
+    .container {
+      padding: 20px;
     }
 
     .section {
@@ -21,57 +46,176 @@
       padding: 15px;
       margin-bottom: 20px;
       border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .section:hover {
+      transform: scale(1.02);
+    }
+
+    .content {
+      display: none;
+      margin-top: 10px;
+    }
+
+    .active {
+      display: block;
+    }
+
+    #quiz button {
+      margin-top: 10px;
+      padding: 8px;
+    }
+
+    #supportBar {
+      width: 100%;
+      background: #ddd;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-top: 10px;
+    }
+
+    #supportFill {
+      width: 0%;
+      height: 20px;
+      background: green;
+      text-align: center;
+      color: white;
     }
   </style>
 </head>
 
 <body>
 
+<header>
   <h1>AI Transparency and Safety Act</h1>
+  <p>Making AI safer, fairer, and more accountable</p>
+</header>
 
-  <div class="section">
+<nav>
+  <button onclick="scrollToSection('problem')">Problem</button>
+  <button onclick="scrollToSection('rules')">Rules</button>
+  <button onclick="scrollToSection('benefits')">Benefits</button>
+  <button onclick="scrollToSection('criticism')">Criticism</button>
+  <button onclick="scrollToSection('support')">Support</button>
+</nav>
+
+<div class="container">
+
+  <div class="section" id="problem" onclick="toggle(this)">
     <h2>What AI Problem It Solves</h2>
-    <p>
-      Artificial Intelligence is growing fast, but many systems are not transparent.
-      People often don’t know when they are interacting with AI, and some systems can
-      spread misinformation or make biased decisions.
-    </p>
+    <div class="content">
+      <p>
+        AI is becoming part of daily life—chatbots, recommendation systems, and automated decisions.
+        However, many systems lack transparency. Users often don’t know:
+      </p>
+      <ul>
+        <li>If they are talking to AI or a human</li>
+        <li>How decisions are made (like job screening)</li>
+        <li>Whether bias or misinformation is involved</li>
+      </ul>
+      <p>This law addresses these risks directly.</p>
+    </div>
   </div>
 
-  <div class="section">
+  <div class="section" id="rules" onclick="toggle(this)">
     <h2>Main Rules of the Law</h2>
-    <ul>
-      <li>All AI systems must clearly identify themselves as AI</li>
-      <li>Companies must explain how their AI makes important decisions</li>
-      <li>Strict limits on harmful or misleading AI content</li>
-      <li>Regular safety testing and audits</li>
-    </ul>
+    <div class="content">
+      <ul>
+        <li><b>AI Disclosure:</b> Systems must clearly identify themselves</li>
+        <li><b>Explainability:</b> Companies must explain major decisions</li>
+        <li><b>Content Limits:</b> Harmful or misleading outputs are restricted</li>
+        <li><b>Audits:</b> Regular safety checks are required</li>
+        <li><b>User Rights:</b> People can question or appeal AI decisions</li>
+      </ul>
+    </div>
   </div>
 
-  <div class="section">
+  <div class="section" id="benefits" onclick="toggle(this)">
     <h2>Who Benefits</h2>
-    <p>
-      This law protects everyday users, students, workers, and businesses by making AI
-      safer and more trustworthy. It also helps governments ensure fair use of technology.
-    </p>
+    <div class="content">
+      <p>
+        This law benefits:
+      </p>
+      <ul>
+        <li>Students – protection from misinformation</li>
+        <li>Workers – fairer hiring systems</li>
+        <li>Consumers – safer online experiences</li>
+        <li>Businesses – increased trust from users</li>
+      </ul>
+    </div>
   </div>
 
-  <div class="section">
+  <div class="section" id="criticism" onclick="toggle(this)">
     <h2>Possible Criticisms</h2>
-    <p>
-      Some people argue that these rules could slow down innovation or make it harder for
-      companies to develop new AI technologies. Others believe enforcement may be difficult.
-    </p>
+    <div class="content">
+      <p>
+        Critics argue:
+      </p>
+      <ul>
+        <li>It may slow innovation</li>
+        <li>Compliance could be expensive</li>
+        <li>Enforcement might be difficult globally</li>
+      </ul>
+      <p>
+        However, supporters argue safety and trust outweigh these concerns.
+      </p>
+    </div>
   </div>
 
-  <div class="section">
+  <div class="section" id="support">
     <h2>Why Voters Should Support It</h2>
     <p>
-      Supporting this law means supporting safer technology, better protection of personal
-      rights, and a more transparent digital future. It ensures AI works for people—not
-      against them.
+      This law promotes transparency, fairness, and accountability in AI.
+      It ensures technology serves people responsibly.
     </p>
+
+    <button onclick="increaseSupport()">Click to Support</button>
+
+    <div id="supportBar">
+      <div id="supportFill">0%</div>
+    </div>
   </div>
+
+  <div class="section" id="quiz">
+    <h2>Quick Quiz</h2>
+    <p>Why is AI transparency important?</p>
+    <button onclick="checkAnswer(true)">To understand decisions</button>
+    <button onclick="checkAnswer(false)">To make AI faster</button>
+    <p id="quizResult"></p>
+  </div>
+
+</div>
+
+<script>
+  function toggle(section) {
+    const content = section.querySelector(".content");
+    content.classList.toggle("active");
+  }
+
+  function scrollToSection(id) {
+    document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+  }
+
+  let support = 0;
+  function increaseSupport() {
+    if (support < 100) {
+      support += 10;
+      document.getElementById("supportFill").style.width = support + "%";
+      document.getElementById("supportFill").innerText = support + "%";
+    }
+  }
+
+  function checkAnswer(correct) {
+    const result = document.getElementById("quizResult");
+    if (correct) {
+      result.innerText = "Correct! Transparency builds trust.";
+    } else {
+      result.innerText = "Not quite. Try again.";
+    }
+  }
+</script>
 
 </body>
 </html>
