@@ -4,231 +4,216 @@
   <title>AI Transparency and Safety Act</title>
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', sans-serif;
-    }
-
     body {
-      background: linear-gradient(135deg, #1f1c2c, #928dab);
+      font-family: Tahoma, Verdana;
+      background-color: #dcdcdc;
+      margin: 0;
+    }
+
+    #wrapper {
+      width: 760px;
+      margin: 20px auto;
+      background: #ffffff;
+      border: 3px solid #000;
+    }
+
+    #header {
+      background: #000080;
       color: white;
-    }
-
-    header {
+      padding: 15px;
       text-align: center;
-      padding: 40px 20px;
     }
 
-    header h1 {
-      font-size: 2.5em;
-    }
-
-    header p {
-      opacity: 0.8;
-    }
-
-    nav {
+    #menu {
+      background: #c0c0c0;
+      padding: 8px;
       text-align: center;
-      margin-bottom: 20px;
+      border-top: 2px solid black;
+      border-bottom: 2px solid black;
     }
 
-    nav button {
-      margin: 5px;
-      padding: 10px 15px;
-      border: none;
-      border-radius: 20px;
-      background: rgba(255,255,255,0.2);
+    #menu span {
+      margin: 0 10px;
+      cursor: pointer;
+      font-size: 13px;
+      text-decoration: underline;
+    }
+
+    #menu span:hover {
+      color: red;
+    }
+
+    .box {
+      border: 2px solid black;
+      margin: 15px;
+      padding: 10px;
+    }
+
+    .title {
+      background: #000080;
       color: white;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    nav button:hover {
-      background: rgba(255,255,255,0.4);
-      transform: scale(1.1);
-    }
-
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 20px;
-    }
-
-    .section {
-      background: rgba(255,255,255,0.1);
-      backdrop-filter: blur(10px);
-      border-radius: 15px;
-      padding: 20px;
-      margin-bottom: 20px;
-      transition: 0.3s;
-      cursor: pointer;
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
-    }
-
-    .section:hover {
-      transform: translateY(-5px) scale(1.02);
-      box-shadow: 0 0 20px rgba(255,255,255,0.2);
+      padding: 5px;
+      font-size: 14px;
     }
 
     .content {
       display: none;
-      margin-top: 10px;
-      opacity: 0;
-      transition: opacity 0.4s ease;
+      padding: 10px;
+      font-size: 13px;
     }
 
-    .content.active {
-      display: block;
-      opacity: 1;
-    }
-
-    ul {
-      margin-left: 20px;
-    }
-
-    button.main-btn {
-      margin-top: 15px;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 20px;
-      background: #00ffcc;
-      color: black;
-      font-weight: bold;
+    .button {
+      border: 2px solid black;
+      background: #e0e0e0;
+      padding: 5px 10px;
       cursor: pointer;
-      transition: 0.3s;
+      font-size: 12px;
     }
 
-    button.main-btn:hover {
-      background: #00ccaa;
-      transform: scale(1.1);
+    .button:hover {
+      background: yellow;
     }
 
-    #supportBar {
+    #bar {
       width: 100%;
-      height: 20px;
-      background: rgba(255,255,255,0.2);
-      border-radius: 20px;
-      overflow: hidden;
-      margin-top: 10px;
+      height: 18px;
+      border: 2px solid black;
+      margin-top: 8px;
+      background: white;
     }
 
-    #supportFill {
+    #fill {
       height: 100%;
       width: 0%;
-      background: linear-gradient(90deg, #00ffcc, #00ccff);
+      background: green;
+      color: white;
+      font-size: 11px;
       text-align: center;
-      font-size: 12px;
-      color: black;
     }
 
-    #quizResult {
-      margin-top: 10px;
-      font-weight: bold;
+    #footer {
+      text-align: center;
+      font-size: 11px;
+      padding: 10px;
+      color: #333;
     }
-
   </style>
 </head>
 
 <body>
 
-<header>
-  <h1>AI Transparency and Safety Act</h1>
-  <p>Building a safer, smarter future with responsible AI</p>
-</header>
+<div id="wrapper">
 
-<nav>
-  <button onclick="scrollToSection('problem')">Problem</button>
-  <button onclick="scrollToSection('rules')">Rules</button>
-  <button onclick="scrollToSection('benefits')">Benefits</button>
-  <button onclick="scrollToSection('criticism')">Criticism</button>
-  <button onclick="scrollToSection('support')">Support</button>
-</nav>
+  <div id="header">
+    <h2>AI Transparency and Safety Act</h2>
+    <p>A simple student project website</p>
+  </div>
 
-<div class="container">
+  <div id="menu">
+    <span onclick="go('p1')">Problem</span>
+    <span onclick="go('p2')">Rules</span>
+    <span onclick="go('p3')">Benefits</span>
+    <span onclick="go('p4')">Criticism</span>
+    <span onclick="go('p5')">Support</span>
+  </div>
 
-  <div class="section" id="problem" onclick="toggle(this)">
-    <h2>⚠️ AI Problem</h2>
+  <div class="box" id="p1">
+    <div class="title" onclick="openBox(this)">AI Problem (click)</div>
     <div class="content">
-      <p>AI is powerful but often invisible. Users don't know when AI is making decisions, which can lead to bias, misinformation, and lack of accountability.</p>
+      AI systems are everywhere now, but many are not clear or transparent.
+      People may not know when they are talking to AI, and some systems can
+      give biased or incorrect results.
     </div>
   </div>
 
-  <div class="section" id="rules" onclick="toggle(this)">
-    <h2>📜 Main Rules</h2>
+  <div class="box" id="p2">
+    <div class="title" onclick="openBox(this)">Main Rules</div>
     <div class="content">
       <ul>
-        <li>AI must identify itself</li>
-        <li>Explain important decisions</li>
-        <li>Limit harmful content</li>
-        <li>Mandatory safety audits</li>
+        <li>AI must clearly say it is AI</li>
+        <li>Important decisions must be explained</li>
+        <li>Harmful or misleading content is limited</li>
+        <li>Regular testing is required</li>
       </ul>
     </div>
   </div>
 
-  <div class="section" id="benefits" onclick="toggle(this)">
-    <h2>✅ Who Benefits</h2>
+  <div class="box" id="p3">
+    <div class="title" onclick="openBox(this)">Who Benefits</div>
     <div class="content">
-      <ul>
-        <li>Students</li>
-        <li>Workers</li>
-        <li>Consumers</li>
-        <li>Businesses</li>
-      </ul>
+      Students, workers, and everyday users benefit from safer AI.
+      Businesses also gain trust from customers.
     </div>
   </div>
 
-  <div class="section" id="criticism" onclick="toggle(this)">
-    <h2>⚖️ Criticism</h2>
+  <div class="box" id="p4">
+    <div class="title" onclick="openBox(this)">Criticism</div>
     <div class="content">
-      <p>Some say it slows innovation and is hard to enforce, but safety and trust are more important long-term.</p>
+      Some believe the law could slow down innovation or be hard to enforce.
+      Others think it adds too many rules for companies.
     </div>
   </div>
 
-  <div class="section" id="support">
-    <h2>🚀 Support the Law</h2>
-    <p>Click below to show support:</p>
-    <button class="main-btn" onclick="increaseSupport()">Support</button>
+  <div class="box" id="p5">
+    <div class="title">Support the Law</div>
+    <div class="content" style="display:block;">
+      Click the button to show support:
+      <br><br>
+      <button class="button" onclick="add()">Support</button>
 
-    <div id="supportBar">
-      <div id="supportFill">0%</div>
+      <div id="bar">
+        <div id="fill">0%</div>
+      </div>
     </div>
   </div>
 
-  <div class="section" id="quiz">
-    <h2>🧠 Quick Quiz</h2>
-    <p>Why is AI transparency important?</p>
-    <button class="main-btn" onclick="checkAnswer(true)">Understand decisions</button>
-    <button class="main-btn" onclick="checkAnswer(false)">Make AI faster</button>
-    <p id="quizResult"></p>
+  <div class="box">
+    <div class="title">Quick Question</div>
+    <div class="content" style="display:block;">
+      Why is AI transparency important?<br><br>
+      <button class="button" onclick="answer(1)">To understand decisions</button>
+      <button class="button" onclick="answer(0)">To make AI faster</button>
+      <p id="result"></p>
+    </div>
+  </div>
+
+  <div id="footer">
+    Page made by student | Last updated 2026
   </div>
 
 </div>
 
 <script>
-  function toggle(section) {
-    const content = section.querySelector(".content");
-    content.classList.toggle("active");
-  }
-
-  function scrollToSection(id) {
-    document.getElementById(id).scrollIntoView({ behavior: "smooth" });
-  }
-
-  let support = 0;
-  function increaseSupport() {
-    if (support < 100) {
-      support += 10;
-      const bar = document.getElementById("supportFill");
-      bar.style.width = support + "%";
-      bar.innerText = support + "%";
+  function openBox(el) {
+    var c = el.nextElementSibling;
+    if (c.style.display === "block") {
+      c.style.display = "none";
+    } else {
+      c.style.display = "block";
     }
   }
 
-  function checkAnswer(correct) {
-    const result = document.getElementById("quizResult");
-    result.innerText = correct ? "✔ Correct!" : "✖ Try again.";
+  function go(id) {
+    document.getElementById(id).scrollIntoView();
+  }
+
+  var num = 0;
+  function add() {
+    if (num < 100) {
+      num += 10;
+      var f = document.getElementById("fill");
+      f.style.width = num + "%";
+      f.innerHTML = num + "%";
+    }
+  }
+
+  function answer(x) {
+    var r = document.getElementById("result");
+    if (x == 1) {
+      r.innerHTML = "Correct.";
+    } else {
+      r.innerHTML = "Nope, try again.";
+    }
   }
 </script>
 
